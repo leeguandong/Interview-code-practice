@@ -50,3 +50,39 @@ class Solution:
 
         FindPath2(root, [], 0)
         return result
+
+    
+'''
+another solution based your code
+'''
+class Solution:
+    # 返回二维列表，内部每个列表表示找到的路径
+    def FindPath(self, root, expectNumber):
+        # write code here
+        if not root:
+            return []
+        result = []
+        path = []
+        currentNum = 0
+        n = expectNumber
+        self.FindPath2(root, result, path, currentNum, n)
+        return result
+    def FindPath2(self, root, result, path, currentNum, n):
+        currentNum += root.val
+        # root使用append转成了列表，因为最后要一个序列，root本身还是树结构
+        path.append(root)
+        # 判断是不是到叶子节点了，到叶子节点了就要判断值的和是不是相等
+        flag = root.left == None and root.right == None
+        # 返回值是一个等于整数的序列
+        if currentNum == n and flag:
+            onepath = []
+            for node in path:
+                onepath.append(node.val)
+            result.append(onepath)
+        if currentNum < n:
+            if root.left:
+                self.FindPath2(root.left, result, path, currentNum, n)
+            if root.right:
+                self.FindPath2(root.right, result, path, currentNum, n)
+        # 拿到一个正确的路径后要弹出，回到上一次父节点继续递归
+        path.pop()
