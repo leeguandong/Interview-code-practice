@@ -14,6 +14,11 @@
 # else:
 #     print 0
 
+try:
+    raw_input
+except NameError:
+    raw_input = input
+
 
 x1 = raw_input()
 x2 = raw_input().split()
@@ -42,6 +47,6 @@ for i in range(3):
             k += 2
             x4.pop()
 
-print res
-print sum(int(i) for i in res) - 1
+print(res)
+print(sum(int(i) for i in res) - 1)
 
