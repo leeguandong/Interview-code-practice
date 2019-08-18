@@ -24,7 +24,7 @@ class Solution:
             if i not in blist.keys():
                 blist[i] = 0
             blist[i] += 1
-        for i in blist:
+        for i in alist:
             if blist[i] == 1:
                 # %d format: a number is required, not str ，i此时返回的是只出现一次的那个字符串是不符合题意的
                 # return i
