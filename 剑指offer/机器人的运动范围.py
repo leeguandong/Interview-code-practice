@@ -42,3 +42,4 @@ class Solution:
             sumNum += number % 10
             number = number // 10
         return sumNum
+# 当确定m,n的上限，则从高位开始取，从第一个最高位取与m,n上限相同的数字直至到达k的上限，剩下的位数全取0
